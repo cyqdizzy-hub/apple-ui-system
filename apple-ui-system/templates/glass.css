@@ -1,0 +1,73 @@
+/* Selective functional-layer glass. Always provide an opaque base first. */
+.fs-glass {
+  background: var(--fs-glass-bg, var(--fs-surface, #fff));
+  border: 1px solid var(--fs-glass-border, var(--fs-line-strong, #cbd2df));
+  box-shadow: var(--fs-glass-shadow, var(--fs-shadow, 0 8px 24px rgba(0,0,0,.12)));
+  position: relative;
+  isolation: isolate;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .fs-glass {
+    -webkit-backdrop-filter: var(--fs-glass-backdrop-filter, blur(18px) saturate(150%));
+    backdrop-filter: var(--fs-glass-backdrop-filter, blur(18px) saturate(150%));
+  }
+}
+
+.fs-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(145deg, var(--fs-glass-sheen, rgba(255,255,255,.35)), transparent 42%),
+              linear-gradient(320deg, var(--fs-glass-tint, rgba(120,160,255,.08)), transparent 58%);
+  opacity: .7;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .fs-glass {
+    background: var(--fs-surface, #fff);
+    border-color: var(--fs-line-strong, #cbd2df);
+  }
+}
+
+[data-transparency="off"] .fs-glass {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: var(--fs-surface, #fff);
+  border-color: var(--fs-line-strong, #cbd2df);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .fs-glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--fs-surface, #fff);
+    border-color: var(--fs-line-strong, #cbd2df);
+  }
+}
+
+@media (prefers-contrast: more) {
+  .fs-glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--fs-surface, #fff);
+    border: 2px solid var(--fs-line-strong, currentColor);
+    box-shadow: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .fs-glass {
+    forced-color-adjust: auto;
+    color: CanvasText;
+    background: Canvas;
+    border: 1px solid ButtonText;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .fs-glass::before { display: none; }
+}
