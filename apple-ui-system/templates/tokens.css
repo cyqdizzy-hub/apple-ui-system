@@ -1,0 +1,82 @@
+/* Apple-inspired UI System v1.0.0 — starter tokens, not Apple official tokens. */
+:root {
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+
+  /* Typography */
+  --fs-type-xs: 0.75rem;
+  --fs-type-sm: 0.8125rem;
+  --fs-type-md: 0.9375rem;
+  --fs-type-lg: 1.125rem;
+  --fs-type-xl: 1.375rem;
+  --fs-type-display: clamp(2rem, 4vw, 2.75rem);
+
+  /* Spacing and shape */
+  --fs-space-1: 4px;
+  --fs-space-2: 8px;
+  --fs-space-3: 12px;
+  --fs-space-4: 16px;
+  --fs-space-5: 20px;
+  --fs-space-6: 24px;
+  --fs-space-8: 32px;
+  --fs-radius-sm: 10px;
+  --fs-radius-md: 14px;
+  --fs-radius-lg: 19px;
+  --fs-radius-xl: 24px;
+
+  /* Motion */
+  --fs-motion-fast: 140ms;
+  --fs-motion-normal: 260ms;
+  --fs-motion-slow: 380ms;
+  --fs-ease-out: cubic-bezier(.22, 1, .36, 1);
+  --fs-ease-spring-approx: cubic-bezier(.20, .85, .25, 1);
+
+  /* Light semantic palette */
+  --fs-accent: #3868f5;
+  --fs-accent-strong: #2550d5;
+  --fs-accent-soft: #e9efff;
+  --fs-bg: #f5f6fa;
+  --fs-panel: #ffffff;
+  --fs-surface: #ffffff;
+  --fs-surface-alt: #f6f7fb;
+  --fs-text: #1c2434;
+  --fs-muted: #626d7e;
+  --fs-subtle: #768294;
+  --fs-line: rgba(35, 53, 88, .09);
+  --fs-line-strong: rgba(35, 53, 88, .18);
+  --fs-shadow: 0 10px 28px rgba(34, 56, 105, .055), 0 1px 4px rgba(25, 45, 92, .035);
+
+  /* Glass: keep blur length and full filter as separate token types. */
+  --fs-glass-bg: rgba(255, 255, 255, .72);
+  --fs-glass-border: rgba(255, 255, 255, .9);
+  --fs-glass-sheen: rgba(255, 255, 255, .88);
+  --fs-glass-shadow: 0 13px 40px rgba(37, 60, 108, .14);
+  --fs-glass-blur-radius: 22px;
+  --fs-glass-backdrop-filter: blur(var(--fs-glass-blur-radius)) saturate(165%);
+  --fs-glass-rim: rgba(255, 255, 255, .88);
+  --fs-glass-tint: rgba(204, 226, 255, .12);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --fs-accent: #9bb6ff;
+  --fs-accent-strong: #b9cbff;
+  --fs-accent-soft: #293b65;
+  --fs-bg: #121722;
+  --fs-panel: #1d2430;
+  --fs-surface: #1d2533;
+  --fs-surface-alt: #252e3d;
+  --fs-text: #eff3fb;
+  --fs-muted: #b6c2d3;
+  --fs-subtle: #a0adc0;
+  --fs-line: rgba(231, 238, 255, .12);
+  --fs-line-strong: rgba(231, 238, 255, .20);
+  --fs-glass-bg: rgba(33, 42, 59, .76);
+  --fs-glass-border: rgba(248, 251, 255, .22);
+  --fs-glass-sheen: rgba(255, 255, 255, .14);
+  --fs-glass-shadow: 0 16px 40px rgba(3, 8, 18, .42);
+  --fs-glass-rim: rgba(242, 249, 255, .33);
+  --fs-glass-tint: rgba(120, 157, 255, .12);
+  --fs-shadow: 0 10px 27px rgba(3, 8, 18, .18);
+}
